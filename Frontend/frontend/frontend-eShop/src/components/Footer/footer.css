@@ -1,0 +1,27 @@
+body {
+    background-color: #fcfcfc;
+    color: white;
+}
+
+.font-white{
+    color: white;
+    font-size: 1.2rem;
+}
+
+.primary-Footer-Color {
+    background-color: #8251cd !important;
+}
+.secondary-Footer-Color {
+    background-color: #5b25ad !important;
+}
+
+.violetBox {
+    background-color: #8251cd;
+}
+
+.whiteBox {
+    background-color: #fcfcfc;
+}
+/* .w-100 {
+    width: 100% !important;
+} */

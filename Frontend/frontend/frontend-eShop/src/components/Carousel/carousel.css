@@ -1,0 +1,105 @@
+@media (max-width: 768px) {
+    .carousel-inner .carousel-item>div {
+        display: none;
+    }
+
+    .carousel-inner .carousel-item>div:first-child {
+        display: block;
+    }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+/* display 3 */
+@media (min-width: 768px) {
+
+    .carousel-inner .carousel-item-right.active,
+    .carousel-inner .carousel-item-next {
+        transform: translateX(33.333%);
+    }
+
+    .carousel-inner .carousel-item-left.active,
+    .carousel-inner .carousel-item-prev {
+        transform: translateX(-33.333%);
+    }
+}
+
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left {
+    transform: translateX(0);
+}
+
+.body {
+    background-color: #FCFCFC;
+    color: aliceblue;
+}
+
+.primaryColor {
+    background-color: #8251CD !important;
+}
+
+
+
+.text-uppercase {
+    text-transform: uppercase !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.blockquote-footer {
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    font-size: 0.875em;
+    color: #6c757d;
+}
+
+.blockquote-footer::before {
+    content: "— ";
+}
+
+
+.buttonGroupLeft {
+    float: left;
+}
+
+.violetBox {
+    background-color: #8251CD;
+}
+
+.violetBoxText {
+    font-size: 2.3rem;
+    text-align: center;
+    font-family: sans-serif;
+    color: #FCFCFC;
+}
+
+.violetBoxTextAlignment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    /* Upewnij się, że ten element ma odpowiednią wysokość */
+}
+
+.whiteBox {
+    background-color: #FCFCFC;
+}
+
+.navbarText {
+    font-size: 2em;
+}
+
+.dropdownMenu1 {
+    background-color: #8251CD !important;
+}
+
+.dropdownMenu1 :hover {
+    background-color: #4b2f75 !important;
+    color: #FCFCFC !important;
+}

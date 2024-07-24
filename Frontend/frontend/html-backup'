@@ -1,0 +1,53 @@
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                  <a class="nav-link " href="#">
+                    Link
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link ">Disabled</a>
+                </li>
+              </ul>
+              <div class="dropdown">
+                <button
+                  class="btn btn-outline-light primaryColor dropdown-toggle m-3"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Witaj XYZ
+                </button>
+                <ul
+                  class="dropdown-menu dropdownMenu1"
+                  aria-labelledby="dropdownMenuButton"
+                >
+                  <li>
+                    <button class="dropdown-item btn-light " type="button">
+                      Twoje Konto
+                    </button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item btn-light " type="button">
+                      Zakupy
+                    </button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item btn-light " type="button">
+                      Ulubione
+                    </button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item btn-light " type="button">
+                      Płatności
+                    </button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item btn-light " type="button">
+                      Usługi
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>

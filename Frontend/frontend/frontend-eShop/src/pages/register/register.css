@@ -1,0 +1,66 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Pełna wysokość widoku */
+    background-color: #8251cd; /* Fioletowe tło */
+  }
+  
+  .form-wrapper {
+    background-color: #ffffff; /* Białe tło otaczającego diva */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcjonalnie: dodaje cień wokół otaczającego diva */
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .custom-form {
+    color: #8251cd; /* Fioletowy kolor tekstu */
+  }
+  
+  .custom-form .form-group {
+    margin-bottom: 1.5rem; /* Dodaje odstępy między grupami formularza */
+  }
+  
+  .custom-form .form-check {
+    margin-bottom: 1.5rem; /* Dodaje odstępy poniżej pola checkbox */
+  }
+  
+  .custom-form .form-control,
+  .custom-form .form-check-label,
+  .custom-form .btn {
+    background-color: #ffffff; /* Białe tło inputa */
+    color: #8251cd; /* Fioletowy kolor tekstu */
+    border-color: #8251cd; /* Fioletowy kolor obramowania */
+    transition: border-color 0.3s ease, background-color 0.3s ease; /* Dodaje animację przejścia */
+  }
+  
+  .custom-form .form-control:focus {
+    border-color: #8251cd; /* Zmienia kolor obwódki na fioletowy po kliknięciu */
+    box-shadow: 0 0 0 0.2rem rgba(130, 81, 205, 0.25); /* Opcjonalnie: dodaje cień wokół inputa */
+    background-color: #ffffff; /* Utrzymuje białe tło inputa po kliknięciu */
+  }
+  
+  .custom-form .form-text {
+    color: #6c757d; /* Kolor dla mniejszych tekstów */
+  }
+  
+  .custom-form .btn-primary {
+    background-color: #4a2e7c; /* Kolor przycisku */
+    border-color: #4a2e7c; /* Kolor obramowania przycisku */
+  }
+  
+  .custom-form .btn-primary:hover {
+    background-color: #3b2465; /* Kolor przycisku po najechaniu */
+    border-color: #3b2465; /* Kolor obramowania przycisku po najechaniu */
+  }
+  
+  .additional-info {
+    text-align: center;
+    color: #6c757d;
+  }
+
+.btn{
+    color: white;
+}  

@@ -1,0 +1,53 @@
+.body {
+    background-color: #FCFCFC;
+}
+
+.primaryColor {
+    background-color: #8251CD !important;
+}
+
+.violetBox {
+    background-color: #8251CD;
+}
+
+.whiteBox {
+    background-color: #FCFCFC;
+}
+
+.navbarText {
+    font-size: 2em;
+}
+
+.btn-blue {
+    background-color: #B3E5FC !important;
+    color: #8251CD !important;
+    border: 1px solid #8251CD !important;
+    border-radius: 4px;
+}
+
+.btn-blue:hover,
+.btn-blue:focus,
+.btn-blue:active {
+    background-color: #9AD0F5 !important;
+    /* Inny kolor po najechaniu/fokusie/kliknięciu */
+    color: #4A2E7C !important;
+    /* Kolor tekstu po najechaniu/fokusie/kliknięciu */
+}
+
+.nav-link-custom {
+    color: inherit;
+    /* Dziedziczy kolor z nadrzędnego elementu */
+    text-decoration: none;
+    /* Usuwa podkreślenie */
+}
+
+.nav-link-custom:hover,
+.nav-link-custom:focus,
+.nav-link-custom.active {
+    color: inherit;
+    /* Ustawia kolor na dziedziczony podczas najechania, fokusowania i aktywnego stanu */
+    text-decoration: none;
+    /* Usuwa podkreślenie podczas najechania, fokusowania i aktywnego stanu */
+    background-color: transparent;
+    /* Usuwa tło podczas najechania, fokusowania i aktywnego stanu */
+}

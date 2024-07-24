@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+
+.categories-margin{
+    margin-top: 140px;
+    text-align: center;
+}
+
+.font-links{
+    color: black;
+}
+
+.App {
+    text-align: center;
+}
+
+.App-header {
+    /* background-color: #282c34; */
+    /* min-height: 20vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: black;
+}
+
+.img-toggle img {
+    width: 50px;
+    /* Możesz dostosować szerokość obrazka */
+    height: auto;
+    margin: 10px;
+    /* Dodaje margines między obrazkami */
+}
+
+.links-container {
+    margin-top: 10px;
+  }
+  
+  .link-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .link-item a {
+    font-size: 1.2rem;
+    text-decoration: none;
+  }
+  
+  .img-toggle img {
+    max-width: 100%;
+    height: auto;
+  }
+
+a.text-reset {
+    color: white;
+    text-decoration: none;
+}
+
+a.text-reset:hover {
+    text-decoration: underline;
+}
+
+.img-toggle.no-caret::after {
+    display: none;
+  }
+h3{
+    text-align: center;
+}
