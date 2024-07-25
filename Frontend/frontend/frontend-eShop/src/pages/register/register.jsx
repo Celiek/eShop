@@ -16,7 +16,6 @@ function Register() {
   });
 
   const navigate = useNavigate();
-
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
 
@@ -41,13 +40,20 @@ function Register() {
       return;
     }
 
+    const queryParams = new URLSearchParams({
+      userName: formData.userName,
+      userSurname: formData.userSurname,
+      dob: formData.dob,
+      email: formData.email,
+      password: formData.password
+    }).toString();
+
     try {
-      const response = await fetch("http://localhost:8080/api/v1/user/register", {
+      const response = await fetch(`http://localhost:8080/api/v1/user/register?${queryParams}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
       });
 
       if (response.ok) {
@@ -78,7 +84,6 @@ function Register() {
     <>
       <Navbar />
       <div style={{ height: "180px" }}></div>
-
       <div className="form-container">
         <div className="form-wrapper">
           <h2 className="text-center mb-4">Rejestracja</h2>
@@ -95,7 +100,6 @@ function Register() {
                 placeholder="Wprowadź imię"
                 value={formData.userName}
                 onChange={handleChange}
-                required
               />
             </div>
             <div className="form-group">
@@ -108,7 +112,6 @@ function Register() {
                 placeholder="Wprowadź nazwisko"
                 value={formData.userSurname}
                 onChange={handleChange}
-                required
               />
             </div>
             <div className="form-group">
@@ -121,7 +124,6 @@ function Register() {
                 placeholder="Wprowadź datę urodzenia"
                 value={formData.dob}
                 onChange={handleChange}
-                required
               />
             </div>
             <div className="form-group">
@@ -134,7 +136,6 @@ function Register() {
                 placeholder="Wprowadź email"
                 value={formData.email}
                 onChange={handleChange}
-                required
               />
             </div>
             <div className="form-group">
@@ -147,7 +148,6 @@ function Register() {
                 placeholder="Wprowadź hasło"
                 value={formData.password}
                 onChange={handleChange}
-                required
               />
             </div>
             <button type="submit" className="btn btn-primary btn-block">
@@ -161,7 +161,6 @@ function Register() {
           </div>
         </div>
       </div>
-
       <div style={{ height: "180px" }}></div>
       <Footer />
     </>

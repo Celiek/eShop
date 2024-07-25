@@ -6,12 +6,10 @@ import com.eShop.Backend.repository.UserRepository;
 import com.eShop.Backend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.Optional;
 
 @RestController
@@ -25,11 +23,7 @@ public class UserController {
     UserRepository userRepository;
 
     @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestParam String userName,
-                                               @RequestParam String userSurname,
-                                               @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date dob,
-                                               @RequestParam String email,
-                                               @RequestParam String password) {
+    public ResponseEntity<String> registerUser(@RequestBody UserDTO userDto) {
         // Hashujemy hasło przed zapisaniem
 //        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
 //
@@ -40,21 +34,14 @@ public class UserController {
 //            return ResponseEntity.badRequest().body(e.getMessage());
 //        }
 
-        User user = new User();
-        user.setUserName(userName);
-        user.setUserSurname(userSurname);
-        user.setDob(dob);
-        user.setEmail(email);
-        user.setPassword(passwordEncoder.encode(password));
+        userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
 
-        if (userRepository.findByEmail(email).isPresent()) {
-            return ResponseEntity.badRequest().body("User already exists");
+        try {
+            userService.createUser(userDto);
+            return ResponseEntity.ok("Created user");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
-
-        // Zapisanie użytkownika w bazie danych
-        userRepository.save(user);
-
-        return ResponseEntity.ok("Created user");
     }
 
     //logowanie z uzyciem UserDto

@@ -2,7 +2,16 @@ import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
+import { useNavigate } from 'react-router-dom';
+
+
 function RegisterComplete(){
+
+    const navigate = useNavigate();
+
+    const handleGoHome = () => {
+        navigate('/');
+    }
 
     return(
         <>
