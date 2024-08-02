@@ -24,15 +24,6 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody UserDTO userDto) {
-        // Hashujemy hasło przed zapisaniem
-//        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
-//
-//        try {
-//            userService.createUser(user);
-//            return ResponseEntity.ok("Created user");
-//        } catch (IllegalArgumentException e) {
-//            return ResponseEntity.badRequest().body(e.getMessage());
-//        }
 
         userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
 
@@ -66,4 +57,6 @@ public class UserController {
             return ResponseEntity.status(401).body("Niewłaściwe dane logowania");
         }
     }
+
+
 }
