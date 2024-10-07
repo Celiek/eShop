@@ -1,8 +1,8 @@
 package com.eShop.Backend.service.impl;
 
 import com.eShop.Backend.dto.UserDTO;
-import com.eShop.Backend.entity.User;
-import com.eShop.Backend.repository.UserRepository;
+import com.eShop.Backend.entity.Customer;
+import com.eShop.Backend.repository.CustomerRepository;
 import com.eShop.Backend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private final UserRepository userRepository;
+    private final CustomerRepository customerRepository;
     @Autowired
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -26,37 +26,37 @@ public class UserServiceImpl implements UserService {
     //z wykorzystaniem DTO DATA TRANSFER OBJECT
     @Override
     public UserDTO createUser(UserDTO userDto) {
-        if(userRepository.existsByEmail(userDto.getEmail())){
+        if(customerRepository.existsByEmail(userDto.getEmail())){
             throw new IllegalArgumentException("Adres email jest już zajęty");
         }
 
-        User user = new User();
-        user.setUserName(userDto.getUserName());
-        user.setUserSurname(userDto.getUserSurname());
-        user.setDob(userDto.getDob());
-        user.setEmail(userDto.getEmail());
-        user.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
+        Customer customer = new Customer();
+        customer.setUserName(userDto.getUserName());
+        customer.setUserSurname(userDto.getUserSurname());
+        customer.setDob(userDto.getDob());
+        customer.setEmail(userDto.getEmail());
+        customer.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
 
 //        if (userDto.getUserCreditCard() != null) {
-//            user.setUserCreditCard(userDto.getUserCreditCard());
+//            customer.setUserCreditCard(userDto.getUserCreditCard());
 //        }
 //
 //        if (userDto.getCVV() != null) {
-//            user.setCVV(userDto.getCVV());
+//            customer.setCVV(userDto.getCVV());
 //        }
 
-        User savedUser = userRepository.save(user);
-        return convertToUserDTO(savedUser);
+        Customer savedCustomer = customerRepository.save(customer);
+        return convertToUserDTO(savedCustomer);
     }
 
-    private UserDTO convertToUserDTO(User user) {
+    private UserDTO convertToUserDTO(Customer customer) {
         UserDTO userDTO = new UserDTO();
-        userDTO.setUserName(user.getUserName());
-        userDTO.setUserSurname(user.getUserSurname());
-        userDTO.setDob(user.getDob());
-        userDTO.setEmail(user.getEmail());
-//        userDTO.setUserCreditCard(user.getUserCreditCard());
-//        userDTO.setCVV(user.getCVV());
+        userDTO.setUserName(customer.getUserName());
+        userDTO.setUserSurname(customer.getUserSurname());
+        userDTO.setDob(customer.getDob());
+        userDTO.setEmail(customer.getEmail());
+//        userDTO.setUserCreditCard(customer.getUserCreditCard());
+//        userDTO.setCVV(customer.getCVV());
         return userDTO;
     }
 

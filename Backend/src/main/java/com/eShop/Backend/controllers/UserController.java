@@ -1,8 +1,8 @@
 package com.eShop.Backend.controllers;
 
 import com.eShop.Backend.dto.UserDTO;
-import com.eShop.Backend.entity.User;
-import com.eShop.Backend.repository.UserRepository;
+import com.eShop.Backend.entity.Customer;
+import com.eShop.Backend.repository.CustomerRepository;
 import com.eShop.Backend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class UserController {
     private final UserService userService;
     private final BCryptPasswordEncoder passwordEncoder;
     @Autowired
-    UserRepository userRepository;
+    CustomerRepository customerRepository;
 
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody UserDTO userDto) {
@@ -44,11 +44,11 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestParam String email, @RequestParam String password) {
-        Optional<User> optionalUser = userRepository.findByEmail(email);
+        Optional<Customer> optionalUser = customerRepository.findByEmail(email);
 
         if (optionalUser.isPresent()) {
-            User user = optionalUser.get();
-            if (passwordEncoder.matches(password, user.getPassword())) {
+            Customer customer = optionalUser.get();
+            if (passwordEncoder.matches(password, customer.getPassword())) {
                 return ResponseEntity.ok("Zalogowanio");
             } else {
                 return ResponseEntity.status(401).body("Niewłaściwe dane logowania");
