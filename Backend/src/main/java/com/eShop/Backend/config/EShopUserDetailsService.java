@@ -5,6 +5,7 @@ import com.eShop.Backend.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -24,7 +25,7 @@ public class EShopUserDetailsService implements UserDetailsService {
              Customer customer = customerRepository.findByEmail(username).orElseThrow(() -> new
                      UsernameNotFoundException("Customer details not found for the customer: " + username));
         List<GrantedAuthority> authorities = customer.getAuthorities().stream().map(authority -> new
-                SimpleGrantedAuthority(authority.getName())).collect(Collectors.toList());
-        return new org.springframework.security.core.userdetails.User(customer.getEmail(), customer.getPassword(), authorities);
+                SimpleGrantedAuthority( authority.getName())).collect(Collectors.toList());
+        return new User(customer.getEmail(), customer.getPassword(), authorities);
     }
 }

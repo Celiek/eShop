@@ -1,19 +1,15 @@
 package com.eShop.Backend.entity;
 
-import com.eShop.Backend.entity.UserStuff.Role;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
-import java.util.Collection;
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -21,6 +17,8 @@ import java.util.List;
 @Table(name="users")
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class Customer {
 
     @Id
@@ -33,6 +31,7 @@ public class Customer {
     private String userSurname;
     private Date dob;
     private String email;
+    @JsonProperty(access =  JsonProperty.Access.WRITE_ONLY)
     private String password;
     private String userCreditCard;
     private String CVV;
@@ -42,13 +41,10 @@ public class Customer {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private Date updatedAt;
-    @Enumerated(EnumType.STRING)
-    private Role role;
 
     @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
-    public Collection<? extends GrantedAuthority> getAuthorities(){
-        return List.of();
-    }
+    @JsonIgnore
+    private Set<Authority> authorities;
 
     public Customer(String userName, String userSurname, Date dob, String email, String password) {
         this.userName = userName;
@@ -67,35 +63,6 @@ public class Customer {
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-
-    public String getUsername() {
-        return email;
-    }
-
-
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-
-    public boolean isEnabled() {
-        return true;
     }
 
 }
